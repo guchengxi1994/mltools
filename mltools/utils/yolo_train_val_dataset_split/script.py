@@ -1,13 +1,13 @@
+import copy
 import glob
 import os
 from multiprocessing import Pool
+from random import sample
+
+from tqdm import tqdm
 
 from mltools import __CPUS__
 from mltools.log.logger import logger
-from tqdm import tqdm
-
-from random import sample
-import copy
 
 RES = []
 valList = []

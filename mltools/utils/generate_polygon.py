@@ -1,7 +1,7 @@
-""" This script is used to generate white(255,255,255)
-    polygons/rectangles in images
-    ------
-    这个脚本是用来在图形中绘制纯白色多边形的（用于增广中的crop）
+"""This script is used to generate white(255,255,255)
+polygons/rectangles in images
+------
+这个脚本是用来在图形中绘制纯白色多边形的（用于增广中的crop）
 """
 
 import random

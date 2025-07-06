@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ET
 
 import numpy as np
 import PIL
+
 from mltools.log.logger import logger
 
 try:

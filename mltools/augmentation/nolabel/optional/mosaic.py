@@ -2,9 +2,10 @@ import random
 
 import numpy as np
 import skimage
+from skimage.transform import resize
+
 from mltools.decorators.deprecated import DeprecatedFeature
 from mltools.log.logger import logger
-from skimage.transform import resize
 
 from .resize import img_resize
 

@@ -1,10 +1,12 @@
+import copy
 import json
 import os
 import random
 import traceback
 from typing import List
-import copy
+
 import numpy as np
+from skimage import io
 
 from mltools import split_file_name
 from mltools.augmentation import AugmentationTypes
@@ -19,8 +21,6 @@ from mltools.utils.json2mask.convert import convert_json_to_mask
 from mltools.utils.json2mask.convert_with_lable_file import (
     convert_json_to_mask_with_label,
 )
-from skimage import io
-
 from mltools.utils.json2mask.third_party import img_arr_to_b64
 
 

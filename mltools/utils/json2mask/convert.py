@@ -1,10 +1,12 @@
 import json
 import os
 import traceback
+
+import yaml
+
 from mltools.log.logger import logger
 from mltools.utils.json2mask.third_party import *
 from mltools.utils.json2mask.third_party_draw import *
-import yaml
 
 
 def convert_json_to_mask(jsonPath: str, saveFile: bool = True):

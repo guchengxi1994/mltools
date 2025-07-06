@@ -1,10 +1,10 @@
 import base64
 import json
 import os
-import xml.etree.ElementTree as ET
-from mltools.log.logger import logger
 import traceback
+import xml.etree.ElementTree as ET
 
+from mltools.log.logger import logger
 from mltools.utils.mlfiles_standardization import Annotation
 
 

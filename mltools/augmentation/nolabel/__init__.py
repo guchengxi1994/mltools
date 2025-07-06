@@ -4,16 +4,16 @@ from .img_rotation import img_rotation
 from .img_translation import img_translation
 from .img_zoom import img_zoom
 from .optional import (
-    multi_polygon_crop,
-    multi_rectangle_crop,
-    polygon_crop,
-    rectangle_crop,
     cutmix,
     img_distort,
-    polygon_inpaint,
-    rectangle_inpaint,
+    img_resize,
     mixup,
     mosaic_img,
     mosaic_img_no_reshape,
-    img_resize,
+    multi_polygon_crop,
+    multi_rectangle_crop,
+    polygon_crop,
+    polygon_inpaint,
+    rectangle_crop,
+    rectangle_inpaint,
 )

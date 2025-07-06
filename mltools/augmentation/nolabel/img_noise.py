@@ -1,8 +1,10 @@
 import os
+
 import numpy as np
 import skimage.util.noise as snoise
-from mltools.augmentation import NullableNdArray, PathOrNdarray
 from skimage import io
+
+from mltools.augmentation import NullableNdArray, PathOrNdarray
 from mltools.log.logger import logger
 
 

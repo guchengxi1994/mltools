@@ -2,6 +2,7 @@ import json
 import os
 
 import numpy as np
+
 from mltools.log.logger import logger
 from mltools.utils.img2xml.multi_object_process import img2xml_multiobj
 

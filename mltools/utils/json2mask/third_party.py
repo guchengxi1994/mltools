@@ -2,10 +2,10 @@ import base64
 import io
 import math
 import uuid
-import PIL.Image
-import PIL.ImageDraw
 
 import numpy as np
+import PIL.Image
+import PIL.ImageDraw
 
 from mltools.decorators.third_party import ThirdPartyFeature
 

@@ -1,28 +1,29 @@
 """
-Descripttion: 
-version: 
+Descripttion:
+version:
 Author: xiaoshuyui
 email: guchengxi1994@qq.com
 Date: 2022-07-09 08:43:17
 LastEditors: xiaoshuyui
 LastEditTime: 2022-07-09 09:15:33
 """
+
 import copy
 import random
 from multiprocessing import Pool
 from typing import List
 
 import numpy as np
-from mltools import __CPUS__
-from mltools import split_file_name
+from skimage import io
+from tqdm import tqdm
+
+from mltools import __CPUS__, split_file_name
 from mltools.augmentation import AugmentationTypes
 from mltools.augmentation.base import BaseAugmentation
 from mltools.augmentation.nolabel import *
 from mltools.augmentation.nolabel.optional.resize import img_resize_with_shape
 from mltools.decorators.incomplete_feature import IncompleteFeature
 from mltools.log.logger import logger
-from skimage import io
-from tqdm import tqdm
 
 
 @IncompleteFeature(message="multi processing development is incomplete")
@@ -392,3 +393,86 @@ def random_aug(img: np.ndarray, index=0, augMethods=[], augNumber=1, savedPath="
 
                 # img = np.array(img, dtype=np.uint8)
         io.imsave(savedPath + "round{}-{}.jpg".format(r, index), img)
+
+
+def random_aug_stream(
+    img: np.ndarray,
+    augMethods=[
+        "noise",
+        "rotation",
+        "trans",
+        "zoom",
+        "flip",
+        "crop",
+        "distort",
+        "inpaint",
+        "mosaic",
+        "resize",
+    ],
+    augNumber=1,
+):
+    """
+    随机增广，流式返回增广后的图片
+    :param img: 输入图片，np.ndarray
+    :param index: 图片编号
+    :param augMethods: 可用的增广方法列表
+    :param augNumber: 总共生成多少组增广图片
+    :yield: 每次返回一张增广后的图片，类型为 np.ndarray
+    """
+    _augs = augMethods
+    l = np.random.randint(2, size=len(_augs))
+    if np.sum(l) == 0:
+        l[0] = 1
+
+    l = l.tolist()
+    p = list(zip(_augs, l))
+
+    for r in range(augNumber):
+        aug_img = img.copy()
+
+        for i in p:
+            if i[1] == 1:
+                if i[0] == "noise":
+                    aug_img = img_noise(aug_img)
+
+                elif i[0] == "rotation":
+                    aug_img = img_rotation(aug_img)
+
+                elif i[0] == "trans":
+                    aug_img = img_translation(aug_img)
+
+                elif i[0] == "zoom":
+                    zoomFactor = random.uniform(0.8, 1.8)
+                    aug_img = img_zoom(aug_img, zoomFactor)
+
+                elif i[0] == "flip":
+                    _imgList = img_flip(aug_img)
+                    aug_img = random.sample(_imgList, k=1)[0]
+
+                elif i[0] == "crop":
+                    _methodsList = [
+                        multi_polygon_crop,
+                        multi_rectangle_crop,
+                        polygon_crop,
+                        rectangle_crop,
+                    ]
+                    _method = random.sample(_methodsList, k=1)[0]
+                    aug_img = _method(aug_img)
+
+                elif i[0] == "distort":
+                    aug_img = img_distort(aug_img)
+
+                elif i[0] == "inpaint":
+                    _methodsList = [polygon_inpaint, rectangle_inpaint]
+                    _method = random.sample(_methodsList, k=1)[0]
+                    aug_img = _method(aug_img)
+
+                elif i[0] == "mosaic":
+                    aug_img, _, _, _ = mosaic_img_no_reshape(
+                        [aug_img, aug_img, aug_img, aug_img]
+                    )
+
+                elif i[0] == "resize":
+                    aug_img = img_resize(aug_img)
+
+        yield aug_img

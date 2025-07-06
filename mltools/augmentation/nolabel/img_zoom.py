@@ -2,10 +2,11 @@ import os
 import random
 
 import numpy as np
-from mltools.augmentation import NullableNdArray, PathOrNdarray
-from mltools.log.logger import logger
 from scipy import ndimage
 from skimage import io
+
+from mltools.augmentation import NullableNdArray, PathOrNdarray
+from mltools.log.logger import logger
 
 
 def img_zoom(oriImg: PathOrNdarray, size: float = 1.2) -> NullableNdArray:

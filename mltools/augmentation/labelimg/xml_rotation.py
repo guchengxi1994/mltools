@@ -1,5 +1,6 @@
-import numpy as np
 import math
+
+import numpy as np
 
 
 def rotate_xml(src, xmin, ymin, xmax, ymax, angle):

@@ -2,9 +2,10 @@ import os
 from typing import List
 
 import numpy as np
+from skimage import io
+
 from mltools.augmentation import NullableNdArray, PathOrNdarray
 from mltools.log.logger import logger
-from skimage import io
 
 
 def img_flip(

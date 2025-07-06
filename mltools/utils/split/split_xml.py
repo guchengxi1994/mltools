@@ -1,10 +1,12 @@
 import copy
 import os
-import numpy as np
 import xml.etree.ElementTree as ET
+
+import numpy as np
+from skimage import io
+
 from mltools.decorators.unfully_test_feature import UnFullyTestedFeature
 from mltools.utils.split.split_img import split_img_overlap
-from skimage import io
 
 
 @UnFullyTestedFeature

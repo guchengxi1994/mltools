@@ -1,7 +1,8 @@
 from typing import List, Tuple
-from skimage import io
+
 import numpy as np
 import skimage
+from skimage import io
 
 
 class ImgWrapper:

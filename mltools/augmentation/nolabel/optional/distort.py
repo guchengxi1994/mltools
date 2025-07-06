@@ -1,14 +1,15 @@
-""" this file is modified from https://github.com/cedricporter/EffectLab/blob/master/EffectLab/Effect.py
-"""
+"""this file is modified from https://github.com/cedricporter/EffectLab/blob/master/EffectLab/Effect.py"""
+
 import operator
 import os
 import random
 from math import sqrt
 
 import numpy as np
-from mltools.log.logger import logger
 from PIL import Image
 from skimage import io
+
+from mltools.log.logger import logger
 
 
 def _div(t: list, v):

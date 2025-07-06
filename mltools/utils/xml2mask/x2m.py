@@ -4,10 +4,11 @@ import xml.etree.ElementTree as ET
 
 import numpy as np
 import yaml
-from mltools.log.logger import logger
-from mltools.utils.xml2yolo.xml2yolo import read_labels
 from skimage import io
 from tqdm import tqdm
+
+from mltools.log.logger import logger
+from mltools.utils.xml2yolo.xml2yolo import read_labels
 
 
 def yaml2dict(filepath):

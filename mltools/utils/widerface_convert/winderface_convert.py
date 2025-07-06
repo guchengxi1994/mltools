@@ -1,12 +1,12 @@
 import os
-
 from multiprocessing import Pool
+
 from skimage import io
+from tqdm import tqdm
 
 from mltools import __CPUS__
-from mltools.utils.img2xml.multi_object_process import img2xml_multiobj
 from mltools.log.logger import logger
-from tqdm import tqdm
+from mltools.utils.img2xml.multi_object_process import img2xml_multiobj
 
 BASE_DIR = os.path.abspath(os.path.dirname(os.getcwd()))
 

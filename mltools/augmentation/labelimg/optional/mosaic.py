@@ -2,14 +2,16 @@ import copy
 import datetime
 import os
 import random
-import skimage
-from mltools.log.logger import logger
-from mltools.augmentation.nolabel.optional.mosaic import mosaic_img_no_reshape
-from mltools.utils.img2xml.multi_object_process import img2xml_multiobj
-from .resize import resize_script
-
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import Element
+
+import skimage
+
+from mltools.augmentation.nolabel.optional.mosaic import mosaic_img_no_reshape
+from mltools.log.logger import logger
+from mltools.utils.img2xml.multi_object_process import img2xml_multiobj
+
+from .resize import resize_script
 
 
 def get_name(xmls: list):

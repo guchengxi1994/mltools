@@ -2,9 +2,10 @@ import os
 import random
 
 import numpy as np
+from skimage import io, transform
+
 from mltools.augmentation import NullableNdArray, PathOrNdarray
 from mltools.log.logger import logger
-from skimage import io, transform
 
 
 def img_translation(oriImg: PathOrNdarray, th: int = 0, tv: int = 0) -> NullableNdArray:

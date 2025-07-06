@@ -1,12 +1,12 @@
-from skimage import io
-import numpy as np
-
 import xml.etree.ElementTree as ET
 
+import numpy as np
+from skimage import io
+
 from mltools.augmentation.nolabel.optional.resize import img_resize
+from mltools.log.logger import logger
 from mltools.utils.xml2yolo.xml2yolo import convert as x2yVert
 from mltools.utils.yolo2xml.yolo2xml import convert as y2xVert
-from mltools.log.logger import logger
 
 
 def resize_script(

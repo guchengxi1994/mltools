@@ -3,6 +3,8 @@ import xml.etree.ElementTree as ET
 from copy import deepcopy
 from typing import List
 
+from skimage import io
+
 from mltools import split_file_name
 from mltools.augmentation import AugmentationTypes
 from mltools.augmentation.base import BaseAugmentation
@@ -10,7 +12,6 @@ from mltools.augmentation.labelimg import *
 from mltools.augmentation.nolabel import *
 from mltools.decorators.incomplete_feature import IncompleteFeature
 from mltools.decorators.unfully_test_feature import UnFullyTestedFeature
-from skimage import io
 
 
 @IncompleteFeature()
@@ -83,14 +84,15 @@ class LabelimgAugmentation(BaseAugmentation):
                     trans_h,
                     trans_v,
                 )
-                root.find(
-                    "path"
-                ).text = self.savedPath + "translation-{}-{}-{}-h{}-v{}.jpg".format(
-                    split_file_name(self.imgs[_imgCount]),
-                    _imgCount + 1,
-                    j,
-                    trans_h,
-                    trans_v,
+                root.find("path").text = (
+                    self.savedPath
+                    + "translation-{}-{}-{}-h{}-v{}.jpg".format(
+                        split_file_name(self.imgs[_imgCount]),
+                        _imgCount + 1,
+                        j,
+                        trans_h,
+                        trans_v,
+                    )
                 )
                 _tree.write(
                     self.savedPath
@@ -267,10 +269,11 @@ class LabelimgAugmentation(BaseAugmentation):
                 root.find("filename").text = "rotation-{}-{}-{}-{}.jpg".format(
                     split_file_name(self.imgs[i]), _imgCount, j, _angle
                 )
-                root.find(
-                    "path"
-                ).text = self.savedPath + "rotation-{}-{}-{}-{}.jpg".format(
-                    split_file_name(self.imgs[i]), _imgCount, j, _angle
+                root.find("path").text = (
+                    self.savedPath
+                    + "rotation-{}-{}-{}-{}.jpg".format(
+                        split_file_name(self.imgs[i]), _imgCount, j, _angle
+                    )
                 )
 
                 _tree.write(

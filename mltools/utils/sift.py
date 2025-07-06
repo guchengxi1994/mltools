@@ -1,9 +1,8 @@
-""" This script is just using for server test
-"""
+"""This script is just using for server test"""
 
 import numpy as np
 from skimage.color import rgb2gray
-from skimage.feature import match_descriptors, SIFT
+from skimage.feature import SIFT, match_descriptors
 
 
 def sift(img1: np.ndarray, img2: np.ndarray):

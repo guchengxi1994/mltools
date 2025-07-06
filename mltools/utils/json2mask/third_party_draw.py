@@ -5,6 +5,7 @@ import numpy as np
 import PIL.Image
 import PIL.ImageDraw
 import PIL.ImageFont
+
 from mltools.decorators.third_party import ThirdPartyFeature
 
 

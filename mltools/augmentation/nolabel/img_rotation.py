@@ -1,6 +1,6 @@
 """
-Descripttion: 
-version: 
+Descripttion:
+version:
 Author: xiaoshuyui
 email: guchengxi1994@qq.com
 Date: 2022-07-09 08:43:17
@@ -11,10 +11,10 @@ LastEditTime: 2022-07-12 19:50:25
 import os
 
 import numpy as np
+from skimage import io, transform
+
 from mltools.augmentation import NullableNdArray, PathOrNdarray
 from mltools.log.logger import logger
-from skimage import io
-from skimage import transform
 
 
 def img_rotation(

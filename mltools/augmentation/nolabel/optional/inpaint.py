@@ -1,5 +1,6 @@
 import numpy as np
 from skimage.restoration import inpaint
+
 from mltools.utils.generate_polygon import generate_polygon, generate_rectangle
 
 

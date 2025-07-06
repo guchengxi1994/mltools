@@ -1,14 +1,14 @@
 import json
 import os
+import traceback
 
 import numpy as np
 import yaml
-from mltools.log.logger import logger
-import traceback
 from skimage.draw import polygon as spolygon
+
+from mltools.log.logger import logger
 from mltools.utils.json2mask.third_party import *
 from mltools.utils.json2mask.third_party_draw import *
-
 from mltools.utils.labels2yaml import labels2yaml
 
 
