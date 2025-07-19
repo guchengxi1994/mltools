@@ -2,3 +2,4 @@ opencv_python
 PyYAML
 tqdm
 xmltodict==0.14.2
+scikit-image
