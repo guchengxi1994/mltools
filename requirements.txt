@@ -1,4 +1,4 @@
-opencv_python==4.11.0.86
-PyYAML==6.0.2
-tqdm==4.67.1
+opencv_python
+PyYAML
+tqdm
 xmltodict==0.14.2
